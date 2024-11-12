@@ -1,20 +1,27 @@
 function computerPlay() {
   let items = ["rock", "paper", "scissors"];
-  let item = items[Math.floor(Math.random() * items.length)];
-  return item;
+  return items[Math.floor(Math.random() * items.length)];
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase()===computerSelection.toLowerCase()){
-        console.log("This is a tie");
-    } 
+  playerSelection = playerSelection.toLowerCase();
+  if (playerSelection === computerSelection) {
+    return "It's a tie!";
+  } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "scissors" && computerSelection === "paper") ||
+    (playerSelection === "paper" && computerSelection === "rock")
+  ) {
+    return "You win! " + playerSelection + " beats " + computerSelection;
+  } else {
+    return "You lose! " + computerSelection + " beats " + playerSelection;
+  }
 }
 
-//let playerSelection = document.querySelector(".playerSelection");
-let playerSelection = "rock";
-let computerSelection = computerPlay();    
+function game() {
+  const playerSelection = document.getElementById("playerSelection").value;
+  const computerSelection = computerPlay();
 
-console.log(playerSelection);
-console.log(computerSelection);
-
-playRound(playerSelection, computerSelection);
+  const resultMessage = playRound(playerSelection, computerSelection);
+  document.getElementById("result").textContent = `Player: ${playerSelection} | Computer: ${computerSelection} - ${resultMessage}`;
+}
