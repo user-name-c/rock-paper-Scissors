@@ -5,17 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/normalize.css" />
-    <title>Document</title>
+    <title>Rock Paper Scissors Game</title>
   </head>
   <body>
-    <h1>Rock paper scissors game</h1>
+    <h1>Rock Paper Scissors Game</h1>
 
-    <p>fight against the machine</p>
+    <p>Fight against the machine</p>
     <div class="form">
-      <label for="guessField">Enter you weapon </label
-      ><input type="text" id="playerSelection" class="playerSelection" />
-      <input type="submit" value="Submit weapon" class="guessSubmit" />
+      <label for="guessField">Enter your weapon (rock, paper, or scissors): </label>
+      <input type="text" id="playerSelection" class="playerSelection" />
+      <input type="submit" value="Submit weapon" class="guessSubmit" onclick="game()" />
     </div>
+
+    <p id="result"></p>
+
     <script src="app.js"></script>
   </body>
 </html>
